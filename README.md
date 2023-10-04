@@ -7,5 +7,5 @@ This is a sample project to test the GitHub Hooks
 ### Clone Project
 
 ```
-$ git clone git@github.com:abhishek-engg-mobilesdk/GitHooksDemo.git && (cd GitHooksDemo; rm -rf ./.git/hooks; mv hooks ./.git/)
+$ git clone git@github.com:abhishek-engg-mobilesdk/GitHooksDemo.git && (cd GitHooksDemo; rm -rf ./.git/hooks; cp -r hooks ./.git/)
 ```
