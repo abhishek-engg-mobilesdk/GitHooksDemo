@@ -6,4 +6,7 @@ plugins {
     alias(libs.plugins.ktlint) apply false
 }
 true
-apply(plugin = "org.jlleitschuh.gradle.ktlint")
+
+subprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+}
