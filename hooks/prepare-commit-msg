@@ -1,0 +1,11 @@
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1 # 1st Arg: Commit Message File
+COMMIT_SOURCE=$2 # 2nd Arg: Commit type ("message", "ammend", "squash")
+SHA1=$3 # 3rd Arg: SHA for the commit if it's ammend commit
+
+currentBranch=$(git rev-parse --abbrev-ref HEAD) # Get the current branch name
+ticketNumber=$(cut -f 1 -d "_"<<<$currentBranch) # Extract the ticket number
+preCommitMessage=`cat $COMMIT_MSG_FILE` # Read the commite message
+
+echo "$ticketNumber: $preCommitMessage" > $1 # Append ticket number in commit

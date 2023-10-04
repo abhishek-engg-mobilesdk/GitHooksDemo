@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if ./gradlew ktlintCheck
+then
+  exit 0 # Success
+fi
+exit 1 # Failure

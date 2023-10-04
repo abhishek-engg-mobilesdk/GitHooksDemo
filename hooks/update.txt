@@ -1,0 +1,16 @@
+#!/bin/sh
+
+protectedBranches=("master" "development")
+currentBranch=$1
+
+if [[ " ${protectedBranches[*]} " =~ " ${currentBranch} " ]]; then
+	exit 1
+fi
+# ticketNumber=$(cut -f 1 -d "_"<<<$currentBranch)
+commitFormat="MOEN-[0-9][0-9][0-9][0-9][0-9]*"
+if [[ $currentBranch = commitFormat ]]; then
+	echo "Format Matched"
+	exit 1
+fi
+echo "Format Not Matched"
+exit 1

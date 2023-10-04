@@ -1,0 +1,13 @@
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1
+commitMessage=`cat $COMMIT_MSG_FILE` # Read the commite message
+
+currentBranch=$(git rev-parse --abbrev-ref HEAD) # Get the current branch name
+ticketNumber=$(cut -f 1 -d "_"<<<$currentBranch) # Extract the ticket number
+
+if [[ "$commitMessage" == "$ticketNumber"* ]]; 
+then
+	exit 0 # Correct commit message format
+fi
+exit 1 # Commit message format is wrong

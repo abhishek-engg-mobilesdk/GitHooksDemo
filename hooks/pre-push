@@ -1,0 +1,15 @@
+#!/bin/sh
+
+protectedBranches=("master")
+currentBranch=`git rev-parse --abbrev-ref HEAD`
+
+if [[ " ${protectedBranches[*]} " =~ " ${currentBranch} " ]]; then
+	read -p "Do you want to push to \"$currentBranch\"? (y/n): " -n 1 -r < /dev/tty
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+	  exit 0
+	fi
+	exit 1
+fi
+
+exit 0
