@@ -1,6 +1,6 @@
 # GitHooksDemo
 
-This is a sample project to test the GitHub Hooks
+This is a sample project to test the GitHub Hooks. Sample hooks are available in the `hooks` directory.
 
 ## Setup
 
